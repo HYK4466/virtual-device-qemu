@@ -52,8 +52,10 @@ static void virtio_custom_pci_class_init(ObjectClass* klass, const void* data) {
 
     pcidev_k->class_id = PCI_CLASS_OTHERS;
     pcidev_k->vendor_id = PCI_VENDOR_ID_REDHAT_QUMRANET;
-    pcidev_k->device_id = 42;
-    pcidev_k->revision = VIRTIO_PCI_ABI_VERSION;
+    pcidev_k->device_id = 0x1040 + 42;
+    pcidev_k->subsystem_vendor_id = PCI_VENDOR_ID_REDHAT_QUMRANET;
+    pcidev_k->subsystem_id = 42;
+    pcidev_k->revision = 1;
 }
 
 static void virtio_custom_pci_instance_init(Object* obj) {
